@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa24597e-3cb3-44a4-abfa-35c6d9ab2773" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/company.csv" beforeDir="false" afterPath="$PROJECT_DIR$/company.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lagou.csv" beforeDir="false" afterPath="$PROJECT_DIR$/lagou.csv" afterDir="false" />
-    </list>
+    <list default="true" id="aa24597e-3cb3-44a4-abfa-35c6d9ab2773" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

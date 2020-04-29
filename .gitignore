@@ -106,7 +106,8 @@ dmypy.json
 .pyre/
 
 # files
-.xlsx
-.csv
+*.xlsx
+*.csv
+*.txt
 
 # End of https://www.gitignore.io/api/python
