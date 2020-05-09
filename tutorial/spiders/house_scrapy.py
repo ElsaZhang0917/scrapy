@@ -6,20 +6,20 @@
 @author: Qiandan Zhang
 """
 
-import sys
-
-sys.path.append("../")
 from tutorial.items import ResidentialItem
 import scrapy
 import re
+import requests
+import time
 
 
-class DmozSpider(scrapy.Spider):
-    name = "house"
-    allowed_domains = ["sz.lianjia.com"]
+class HouseSpider(scrapy.Spider):
+    name = "house_gz"
+    allowed_domains = ["gz.lianjia.com"]
     start_urls = [
-        "https://sz.lianjia.com/xiaoqu/"
+        "https://gz.lianjia.com/xiaoqu/"
     ]
+    base_url = "https://gz.lianjia.com"
 
     def parse(self, response):
         district_list = response.xpath('//div[@data-role="ershoufang"]//div//a')
@@ -27,7 +27,7 @@ class DmozSpider(scrapy.Spider):
         for district in district_list:
             district_url = district.xpath('.//@href').extract_first()
 
-            district_link = "https://sz.lianjia.com" + district_url
+            district_link = self.base_url + district_url
             yield scrapy.Request(url=district_link, callback=self.district_parse)
 
     def district_parse(self, response):
@@ -39,7 +39,7 @@ class DmozSpider(scrapy.Spider):
                 continue
 
             area_url = area.xpath('.//@href').extract_first()
-            area_link = "https://sz.lianjia.com" + area_url
+            area_link = self.base_url + area_url
             yield scrapy.Request(url=area_link, callback=self.area_parse)
 
     def area_parse(self, response):
@@ -62,7 +62,7 @@ class DmozSpider(scrapy.Spider):
                        re_first(r"curPage\":(\d+)"))
         if cur_page < num_page:
             base_link = response.xpath('//div[@class="page-box house-lst-page-box"]/@page-url').extract_first()
-            next_link = "https://sz.lianjia.com" + base_link.format(page=cur_page + 1)
+            next_link = self.base_url + base_link.format(page=cur_page + 1)
             yield scrapy.Request(url=next_link, callback=self.area_parse)
 
     def residential_parse(self, response):
@@ -96,4 +96,29 @@ class DmozSpider(scrapy.Spider):
         else:
             item['num_house'] = '暂无信息'
 
+        # item['longitude'], item['latitude'] = self.get_info(item['address'])
+
         yield item
+
+    def get_info(self, address):
+        """
+
+        :param address:
+        :return:
+        """
+        url = 'https://restapi.amap.com/v3/geocode/geo?'
+        key = '66ab94c72d7c7fb36830b694679e8c14'
+        link = '{}address={}&key={}&city=021'.format(url, address, key)
+
+        try:
+            response = requests.get(link)
+            if response.status_code == 200:
+                results = response.json()
+                if results['status'] == '1':
+                    loc = results['geocodes'][0]['location']
+                    lng, lat = loc.split(',')[0], loc.split(',')[1]
+                    return lng, lat
+        except:
+            print('!!!')
+            time.sleep(1)
+            pass

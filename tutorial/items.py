@@ -21,6 +21,8 @@ class ResidentialItem(scrapy.Item):
     num_house = scrapy.Field()
     num_second_hand = scrapy.Field()
     link = scrapy.Field()
+    longitude = scrapy.Field()
+    latitude = scrapy.Field()
 
 
 class RestaurantItem(scrapy.Item):

@@ -17,7 +17,7 @@ class CompanyScrapy(scrapy.Spider):
     allowed_domains = ["liepin.com"]
     start_urls = [
                   "https://www.liepin.com/company/converge/1/",
-                  "https://www.liepin.com/company/converge/2/"
+                  "https://www.liepin.com/company/converge/2/",
                   "https://www.liepin.com/company/converge/3/",
                   "https://www.liepin.com/company/converge/4/",
                   "https://www.liepin.com/company/converge/5/",

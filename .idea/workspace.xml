@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa24597e-3cb3-44a4-abfa-35c6d9ab2773" name="Default Changelist" comment="" />
+    <list default="true" id="aa24597e-3cb3-44a4-abfa-35c6d9ab2773" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/proxies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/proxies.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/spiders/company_scrapy.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/spiders/company_scrapy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/spiders/house_scrapy.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/spiders/house_scrapy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/spiders/lagou_scrapy.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/spiders/lagou_scrapy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/spiders/restaurant_scrapy.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/spiders/restaurant_scrapy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/数字.woff" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/数字.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/数字.woff" beforeDir="false" afterPath="$PROJECT_DIR$/数字.woff" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +33,7 @@
   <component name="ProjectId" id="1aYnoowEkweqfeZxeYzaYViNpso" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>

@@ -57,8 +57,8 @@ COOKIES_DEBUG = False
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'tutorial.middlewares.UseAgentMiddleware': 300,
-   'tutorial.middlewares.ProxyMiddlleWare': 333,
-   'tutorial.middlewares.TutorialDownloaderMiddleware': None,
+   # 'tutorial.middlewares.ProxyMiddlleWare': 333,
+   # 'tutorial.middlewares.TutorialDownloaderMiddleware': None,
 }
 
 # Enable or disable extensions

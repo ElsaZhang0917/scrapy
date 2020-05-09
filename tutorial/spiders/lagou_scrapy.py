@@ -23,7 +23,7 @@ def get_detail_url():
     for finance in range(1, 9):
         for recruit in range(1, 7):
             for area in range(24, 34):
-                detail_url = 'https://www.lagou.com/gongsi/215-{}-{}-{}'.format(finance, area, recruit)
+                detail_url = 'https://www.lagou.com/gongsi/3-{}-{}-{}'.format(finance, area, recruit)
                 headers = {
                     'User-Agent':
                         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -54,7 +54,7 @@ def page_parse(url, headers):
         all_pages = all_pages | page_links
 
     all_pages = list(map(lambda x: [x], all_pages))
-    with open('all_pages.csv', mode="a", newline='', encoding='utf-8') as f:
+    with open('all_pages_sh.csv', mode="a", newline='', encoding='utf-8') as f:
         writer = csv.writer(f, delimiter=',')
         for page in all_pages:
             writer.writerow(page)
@@ -67,14 +67,15 @@ class LagouScrapy(scrapy.Spider):
     name = 'lagou'
     allow_domains = ['lagou.com']
     urls = []
-    with open('all_pages.csv', mode="r") as f:
+    with open('all_pages_sh.csv', mode="r") as f:
         for url in f.readlines():
             urls.append(url.strip())
+    urls = list(set(urls))
     start_urls = list(map(lambda x: x + '.html', urls))
 
     def start_requests(self):
         for url in self.start_urls:
-            time.sleep(random.randint(0, 3))
+            # time.sleep(random.randint(0, 3))
             headers = {
                 'User-Agent':
                     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -89,6 +90,8 @@ class LagouScrapy(scrapy.Spider):
         item['company_name'] = response.xpath('//h1[@class="company_main_title"]//@title').extract_first()
         base_info = response.xpath('//div[@id="basic_container"]//li')
         for info in base_info:
+            if info.xpath('.//i[@class="type"]'):
+                item['field'] = info.xpath('.//span/text()').extract_first()
             if info.xpath('.//i[@class="process"]'):
                 item['finance_status'] = info.xpath('.//span/text()').extract_first()
             if info.xpath('.//i[@class="number"]'):

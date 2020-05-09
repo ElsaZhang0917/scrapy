@@ -4,6 +4,6 @@
 from scrapy import cmdline
 
 
-name = 'restaurant'
+name = 'house_gz'
 cmd = 'scrapy crawl {}'.format(name)
 cmdline.execute(cmd.split())
